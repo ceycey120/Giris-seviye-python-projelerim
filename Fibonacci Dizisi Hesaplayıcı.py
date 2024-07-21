@@ -1,3 +1,5 @@
+import time
+
 def fibonacci(n):
     if n <= 0:
         return "Lütfen pozitif bir sayı girin."
@@ -20,8 +22,13 @@ def main():
             if n <= 0:
                 print("Lütfen pozitif bir sayı girin.")
             else:
+                start_time = time.time()
                 fib_sequence = fibonacci(n)
-                print(f"İlk {n} terim: {fib_sequence}")
+                end_time = time.time()
+                elapsed_time = end_time - start_time
+
+                print(f"İlk {n} terim: {', '.join(map(str, fib_sequence))}")
+                print(f"Hesaplama süresi: {elapsed_time:.6f} saniye")
         except ValueError:
             print("Lütfen geçerli bir sayı girin.")
         
